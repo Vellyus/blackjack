@@ -10,7 +10,7 @@ let deck = []
 //   cards.forEach(e => deck.push("h" + e))
 // }
 
-for (let i = 0; i < 7; i++)
+for (let i = 0; i < 8; i++)
 {
   cards.forEach(e => deck.push("♠" + e))
   cards.forEach(e => deck.push("♣" + e))
@@ -175,7 +175,7 @@ function resetDeck()
   //     cards.forEach(e => deck.push("h" + e))
   //   }
 
-  for (let i = 0; i < 7; i++)
+  for (let i = 0; i < 8; i++)
   {
     cards.forEach(e => deck.push("♠" + e))
     cards.forEach(e => deck.push("♣" + e))
