@@ -34,6 +34,8 @@ const dealerCardsElement = document.querySelector(".dealerCards")
 const hitButton = document.querySelector(".hitButton")
 const stopButton = document.querySelector(".stopButton")
 
+playButton.style.visibility = "hidden"
+
 let theDealer
 
 playButton.addEventListener("click", () =>
@@ -47,6 +49,11 @@ playButton.addEventListener("click", () =>
 
 
   dealForPlayer()
+
+  playButton.style.visibility = "hidden"
+  hitButton.style.visibility = "visible"
+  stopButton.style.visibility = "visible"
+
 })
 
 hitButton.addEventListener("click", () =>
@@ -59,6 +66,10 @@ stopButton.addEventListener("click", () =>
 {
   dealForDealer()
   theDealer = setInterval(dealForDealer, 1200)
+
+  hitButton.style.visibility = "hidden"
+  stopButton.style.visibility = "hidden"
+
 
 })
 
@@ -165,6 +176,10 @@ function playerWon()
 
   winner.innerText = "PLAYER WON"
   winner.style.visibility = "visible"
+  playButton.style.visibility = "visible"
+  hitButton.style.visibility = "hidden"
+  stopButton.style.visibility = "hidden"
+
 
   playerPoints = 0
   dealerPoints = 0
@@ -184,6 +199,10 @@ function dealerWon()
 
   winner.innerText = "DEALER WON"
   winner.style.visibility = "visible"
+  playButton.style.visibility = "visible"
+  hitButton.style.visibility = "hidden"
+  stopButton.style.visibility = "hidden"
+
 
   playerPoints = 0
   dealerPoints = 0
@@ -203,6 +222,9 @@ function draw()
 
   winner.innerText = "DRAW"
   winner.style.visibility = "visible"
+  playButton.style.visibility = "visible"
+  hitButton.style.visibility = "hidden"
+  stopButton.style.visibility = "hidden"
 
   playerPoints = 0
   dealerPoints = 0
