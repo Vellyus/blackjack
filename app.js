@@ -174,15 +174,17 @@ function resetDeck()
   //     cards.forEach(e => deck.push("d" + e))
   //     cards.forEach(e => deck.push("h" + e))
   //   }
+
+  for (let i = 0; i < 7; i++)
+  {
+    cards.forEach(e => deck.push("♠" + e))
+    cards.forEach(e => deck.push("♣" + e))
+    cards.forEach(e => deck.push("♦" + e))
+    cards.forEach(e => deck.push("♥" + e))
+  }
+
 }
 
-for (let i = 0; i < 7; i++)
-{
-  cards.forEach(e => deck.push("♠" + e))
-  cards.forEach(e => deck.push("♣" + e))
-  cards.forEach(e => deck.push("♦" + e))
-  cards.forEach(e => deck.push("♥" + e))
-}
 
 function playerWon()
 {
