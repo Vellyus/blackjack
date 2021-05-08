@@ -2,12 +2,20 @@ const cards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
 
 let deck = []
 
+// for (let i = 0; i < 7; i++)
+// {
+//   cards.forEach(e => deck.push("s" + e))
+//   cards.forEach(e => deck.push("c" + e))
+//   cards.forEach(e => deck.push("d" + e))
+//   cards.forEach(e => deck.push("h" + e))
+// }
+
 for (let i = 0; i < 7; i++)
 {
-  cards.forEach(e => deck.push("s" + e))
-  cards.forEach(e => deck.push("c" + e))
-  cards.forEach(e => deck.push("d" + e))
-  cards.forEach(e => deck.push("h" + e))
+  cards.forEach(e => deck.push("♠" + e))
+  cards.forEach(e => deck.push("♣" + e))
+  cards.forEach(e => deck.push("♦" + e))
+  cards.forEach(e => deck.push("♥" + e))
 }
 
 let playerPoints = 0
@@ -159,94 +167,102 @@ function resetDeck()
 {
   deck = []
 
+  //   for (let i = 0; i < 7; i++)
+  //   {
+  //     cards.forEach(e => deck.push("s" + e))
+  //     cards.forEach(e => deck.push("c" + e))
+  //     cards.forEach(e => deck.push("d" + e))
+  //     cards.forEach(e => deck.push("h" + e))
+  //   }
+  // }
+
   for (let i = 0; i < 7; i++)
   {
-    cards.forEach(e => deck.push("s" + e))
-    cards.forEach(e => deck.push("c" + e))
-    cards.forEach(e => deck.push("d" + e))
-    cards.forEach(e => deck.push("h" + e))
+    cards.forEach(e => deck.push("♠" + e))
+    cards.forEach(e => deck.push("♣" + e))
+    cards.forEach(e => deck.push("♦" + e))
+    cards.forEach(e => deck.push("♥" + e))
   }
-}
 
-function playerWon()
-{
-  clearInterval(theDealer)
+  function playerWon()
+  {
+    clearInterval(theDealer)
 
-  console.log("PLAYER WON")
+    console.log("PLAYER WON")
 
-  winner.innerText = "PLAYER WON"
-  winner.style.visibility = "visible"
-  playButton.style.visibility = "visible"
-  hitButton.style.visibility = "hidden"
-  stopButton.style.visibility = "hidden"
-
-
-  playerPoints = 0
-  dealerPoints = 0
-
-  playerCards = []
-  dealerCards = []
-
-  playerWins++
-  playerWinCount.innerText = "Player's win count: " + playerWins
-}
-
-function dealerWon()
-{
-  clearInterval(theDealer)
-
-  console.log("DEALER WON")
-
-  winner.innerText = "DEALER WON"
-  winner.style.visibility = "visible"
-  playButton.style.visibility = "visible"
-  hitButton.style.visibility = "hidden"
-  stopButton.style.visibility = "hidden"
+    winner.innerText = "PLAYER WON"
+    winner.style.visibility = "visible"
+    playButton.style.visibility = "visible"
+    hitButton.style.visibility = "hidden"
+    stopButton.style.visibility = "hidden"
 
 
-  playerPoints = 0
-  dealerPoints = 0
+    playerPoints = 0
+    dealerPoints = 0
 
-  playerCards = []
-  dealerCards = []
+    playerCards = []
+    dealerCards = []
 
-  dealerWins++
-  dealerWinCount.innerText = "Dealer's win count: " + dealerWins
-}
+    playerWins++
+    playerWinCount.innerText = "Player's win count: " + playerWins
+  }
 
-function draw()
-{
-  clearInterval(theDealer)
+  function dealerWon()
+  {
+    clearInterval(theDealer)
 
-  console.log("DRAW")
+    console.log("DEALER WON")
 
-  winner.innerText = "DRAW"
-  winner.style.visibility = "visible"
-  playButton.style.visibility = "visible"
-  hitButton.style.visibility = "hidden"
-  stopButton.style.visibility = "hidden"
+    winner.innerText = "DEALER WON"
+    winner.style.visibility = "visible"
+    playButton.style.visibility = "visible"
+    hitButton.style.visibility = "hidden"
+    stopButton.style.visibility = "hidden"
 
-  playerPoints = 0
-  dealerPoints = 0
 
-  playerCards = []
-  dealerCards = []
+    playerPoints = 0
+    dealerPoints = 0
 
-}
+    playerCards = []
+    dealerCards = []
 
-function updateState(selectedCard)
-{
-  let card = selectedCard.slice(1)
-  let cardValue
+    dealerWins++
+    dealerWinCount.innerText = "Dealer's win count: " + dealerWins
+  }
 
-  if (card === "J" || card === "Q" || card === "K") cardValue = 10
-  else if (card === "A") cardValue = 11
-  else cardValue = Number.parseInt(card)
+  function draw()
+  {
+    clearInterval(theDealer)
 
-  if (cardValue < 9) state++
-  else state--
+    console.log("DRAW")
 
-  console.log("State: " + state)
-}
+    winner.innerText = "DRAW"
+    winner.style.visibility = "visible"
+    playButton.style.visibility = "visible"
+    hitButton.style.visibility = "hidden"
+    stopButton.style.visibility = "hidden"
 
-dealForPlayer()
+    playerPoints = 0
+    dealerPoints = 0
+
+    playerCards = []
+    dealerCards = []
+
+  }
+
+  function updateState(selectedCard)
+  {
+    let card = selectedCard.slice(1)
+    let cardValue
+
+    if (card === "J" || card === "Q" || card === "K") cardValue = 10
+    else if (card === "A") cardValue = 11
+    else cardValue = Number.parseInt(card)
+
+    if (cardValue < 9) state++
+    else state--
+
+    console.log("State: " + state)
+  }
+
+  dealForPlayer()
