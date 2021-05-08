@@ -261,8 +261,8 @@ function updateState(selectedCard)
   else if (card === "A") cardValue = 11
   else cardValue = Number.parseInt(card)
 
-  if (cardValue < 9) state++
-  else state--
+  if (cardValue < 7) state++
+  else if (cardValue > 9) state--
 
   console.log("State: " + state)
 }
